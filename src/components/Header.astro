@@ -1,44 +1,89 @@
 ---
-import Icon from "astro-icon";
-import { SITE_TITLE } from "../config";
+import { SiTreehouse } from "react-icons/si";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrFormClose } from "react-icons/gr";
+import { IoCloseSharp } from "react-icons/io5";
+
 ---
 
-<header class="mb-4 flex flex-row justify-between">
-	<a href="/">
-		<h1
-			class="uppercase font-bold text-red-500 hover:text-red-700 text-3xl"
-		>
-			{SITE_TITLE}
-		</h1>
-	</a>
-	<button id="dark-mode-toggle">
-		<Icon name="tabler:sun" class="w-6 h-6 dark:text-white" />
-	</button>
-</header>
+<div class='bg-slate-900 text-white py-5 sm:py-5'>
+  <nav class='container flex items-center justify-between'>
+    <a class='font-medium text-lg flex items-center text-white' href='/'>
+        <SiTreehouse style={{ height: '30px', width: '30px', marginRight: '10px' }}/>
+    </a>
 
-<script is:inline>
-	if (
-		localStorage.theme === "dark" ||
-		(!("theme" in localStorage) &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches)
-	) {
-		document.documentElement.classList.add("dark");
-	} else {
-		document.documentElement.classList.remove("dark");
-	}
+    <!-- Desktop navigation items -->
+    <ul class='hidden sm:flex space-x-5'>
+      <li>
+        <a href='/guides/' class='text-gray-400 hover:text-white'>Guides</a>
+      </li>
+      <li>
+        <a
+          class='py-2 px-4 text-sm font-regular rounded-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white'
+          href='/signup/'
+        >
+          Subscribe
+        </a>
+      </li>
+    </ul>
 
-	window.onload = function () {
-		const element = document.getElementById("dark-mode-toggle");
+    <!-- Mobile Navigation Button -->
+    <button
+      class='text-gray-400 hover:text-gray-50 block sm:hidden cursor-pointer'
+      aria-label='Menu'
+      show-mobile-nav
+    >
+      <GiHamburgerMenu style={{ height: '20px', width: '20px', marginRight: '10px', }}/>
+    </button>
 
-		if (element) {
-			element.addEventListener("click", () => {
-				document.documentElement.classList.toggle("dark");
+    <!-- Mobile Navigation Items -->
+    <div
+      class='fixed top-0 bottom-0 left-0 right-0 z-40 bg-slate-900 items-center flex hidden'
+      mobile-nav
+    >
+      <button
+        close-mobile-nav
+        class=' block cursor-pointer absolute top-6 right-6'
+        aria-label='Close Menu'
+      >
+        <IoCloseSharp style={{color:'white', height: '25px', width: '25px', marginRight: '10px',}}/>
+      </button>
+      <ul class='flex flex-col gap-2 md:gap-3 items-center w-full'>
+        <li>
+          <a href='/roadmaps/' class='text-xl md:text-lg hover:text-blue-300'
+            >Roadmaps</a
+          >
+        </li>
+        <li>
+          <a href='/guides/' class='text-xl md:text-lg hover:text-blue-300'
+            >Guides</a
+          >
+        </li>
+        <li>
+          <a href='/videos/' class='text-xl md:text-lg hover:text-blue-300'
+            >Videos</a
+          >
+        </li>
+        <li>
+          <a
+            href='/signup/'
+            class='text-xl md:text-lg text-red-300 hover:text-red-400'
+            >Subscribe</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-				localStorage.theme =
-					document.documentElement.classList.contains("dark")
-						? "dark"
-						: "light";
-			});
-		}
-	};
+<script>
+  document.querySelector('[show-mobile-nav]')?.addEventListener('click', () => {
+    document.querySelector('[mobile-nav]')?.classList.remove('hidden');
+  });
+
+  document
+    .querySelector('[close-mobile-nav]')
+    ?.addEventListener('click', () => {
+      document.querySelector('[mobile-nav]')?.classList.add('hidden');
+    });
 </script>

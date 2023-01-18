@@ -1,62 +1,98 @@
 ---
-import { Icon } from "astro-icon";
-
-const currentYear = new Date().getFullYear();
+import React from 'react'
+import { Box, Link, Container } from '@chakra-ui/react'
+import { SiTreehouse } from "react-icons/si";
+const today = new Date()
 ---
+      <div class='static p-2 bottom-0  bg-slate-900 h-64'>
+            {/* // bg={'#06020d'}
+            // h={'250px'}
+            // padding={5}
+            // bottom={0}
+            // position={'static'} */}
+                  
+      <Container maxW='container.md'>
+      <div class='flex flex-wrap justify-center top-auto text-center'        >     
+            {/* display='flex'
+            flexFlow={'row wrap'}
+            justifyContent='center'
+            top={'auto'}
+            textAlign={'center'} */}
+              
+      <a class='m-2 text-white font-semibold no-underline text-lg '
+      href='/'>
+        
+            {/* margin={2}
+            href={'/'}
+            color='white'
+            fontWeight={600}
+            _hover={{ textDecoration: 'none' }} 
+            fontSize='18px' */}
+         About
+      </a>
 
-<footer>
-  <div class="mb-3 mt-4">
-    <div class="flex flex-row">
-      <div class="basis-3/4 text-left">
-        <div class="flex flex-row mb-2">
-          <a
-            class="mr-2 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-            href="/imprint">Imprint</a
-          >
-          <a
-            class="mr-2 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-            href="/blog">Blog</a
-          >
-          <a
-            class="mr-2 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-            href="/about">About</a
-          >
-        </div>
-        <div>
-          &copy; {currentYear} AWESOME NAME.
-        </div>
+      <a class='m-2 text-white font-semibold no-underline text-lg '
+      href='/'>
+            {/* margin={2}
+            color='white'
+            fontWeight={600}
+            _hover={{ textDecoration: 'none' }}
+            fontSize='18px' */}
+        Contact
+      </a>
+
+      <a class='m-2 text-white font-semibold no-underline text-lg'
+      href='/guides'>
+            {/* // href='/guides'
+            // margin={2}
+            // color='white'
+            // fontWeight={600}
+            // _hover={{ textDecoration: 'none' }}
+            // fontSize='18px' */}
+        Guides
+      </a>
+
+      <a class='m-2 text-white font-semibold no-underline text-lg '
+      href='/'>
+            {/* margin={2}
+            color='white'
+            fontWeight={600}
+            _hover={{ textDecoration: 'none' }}
+            fontSize='18px' */}
+        Tutoring
+      </a>
+
+      <a class='m-2 text-white font-semibold no-underline text-lg '
+      href='feedback'>
+            {/* // margin={2}
+            // href={'/feedback'} 
+            // color='white'
+            // fontWeight={600}
+            // _hover={{ textDecoration: 'none' }}
+            // fontSize='18px' */}
+        Feedback
+      </a>
       </div>
-      <div class="basis-1/4 justify-end flex flex-row">
-        <a
-          href="/rss.xml"
-          class="ml-4 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-          aria-label="rss"
-          rel="noopener"
-        >
-          <Icon name="fa:feed" />
-        </a>
-        <a
-          href="#"
-          class="ml-4 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-          aria-label="Email"
-          rel="noopener"
-        >
-          <Icon name="fa-solid:envelope" />
-        </a>
-        <a
-          href="#"
-          class="ml-4 hover:text-red-500 dark:text-white dark:hover:text-red-500"
-          aria-label="Github"
-          rel="noopener"
-        >
-          <Icon name="fa-brands:github" />
-        </a>
+
+       {/* Logo footer section */}
+
+      <div class='flex justify-center font-bold mt-7 text-gray-700'>  
+            {/* display={'flex'} 
+            justifyContent='center'
+            fontWeight={'bold'}
+            mt={'7'}  */}
+
+       {/* Icon tree */}
+      <SiTreehouse style={{ height: '30px', width: '30px' }}/>
+        JustLearn
       </div>
-    </div>
+      
+       {/* Dátum a all right reserved */}
+      <div class='text-gray-700 p-4 text-center' >
+            {/* textColor={'gray.700'}  
+            p={4} 
+            textAlign={'center'} */}
+        &copy; {today.getFullYear()}&nbsp;All rights reserved.
+      </div>
+    </Container>
   </div>
-</footer>
-<style>
-  [astro-icon] {
-    height: 24px;
-  }
-</style>

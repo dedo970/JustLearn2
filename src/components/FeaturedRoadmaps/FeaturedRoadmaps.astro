@@ -1,0 +1,26 @@
+---
+import type { RoadmapFileType } from '../../utils/roadmap';
+import FeaturedRoadmapItem from './FeaturedRoadmapItem.astro';
+
+export interface Props {
+  roadmaps: RoadmapFileType[];
+}
+
+const { roadmaps, heading } = Astro.props;
+---
+
+<div class="py-4 sm:py-14 relative">
+  <div class="container">
+
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+      {
+        roadmaps.map((roadmap) => (
+          <li>
+            <FeaturedRoadmapItem roadmap={roadmap} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

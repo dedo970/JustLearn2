@@ -1,0 +1,35 @@
+---
+import { Box, Link, Button } from '@chakra-ui/react'
+import { Container, Text, } from '@chakra-ui/react'
+import { FiExternalLink } from "react-icons/fi";
+import { MdFeedback } from "react-icons/md";
+---
+<div class='flex flex-col justify-center text-center text-white  bg-slate-900 h-72'   >
+      {/* h={'300px'} 
+      display={'flex'} 
+      flexDirection={'column'}
+      justifyContent='center' 
+      textAlign={'center'}
+      color={'white'} 
+      // borderTop={'1px'} 
+      // borderColor={'#e2e8f0'} */}
+      <!-- bg={'#06020D'} -->
+
+<Container maxW='container.md'>
+      <h1 class='m-2 font-bold text-4xl'>
+      {/* m={2} fontWeight='bold' fontSize='35px' */}
+            Have Idea?
+      </h1>
+      <h1 class='m-2 font-semibold text-lg'>
+      {/* m={2} fontWeight='semibold' fontSize='17px' */}
+            Give us a feedback with our comunnity.
+      </h1>
+
+      <a class='flex justify-center' href='/feedback' style={{ textDecoration: 'none' }}>
+      <button class='items-center border text-2xl font-semibold rounded border-white outline-1 p-1 flex flex-row text-center'>
+           Feedback
+           <MdFeedback  style={{ height: '30px', width: '30px', marginLeft: '10px' }}/>
+      </button> 
+      </a>
+</Container>
+</div>
